@@ -56,6 +56,7 @@ function [sTrialData,sStimParams]= FO_runAsyncStim()
 		sStimParams.intScreenWidth_pix = vecRect(3)-vecRect(1);
 		sStimParams.intScreenHeight_pix = vecRect(4)-vecRect(2);
 		sStimParams.dblPixelsPerDeg = sStimParams.intScreenWidth_pix/sStimParams.dblScreenWidth_deg;
+        sStimParams.dblPixelsPerCm = sStimParams.intScreenWidth_pix/sStimParamsSettings.dblScreenWidth_cm;
 		
 		%% MAXIMIZE PRIORITY
 		intOldPriority = 0; %#ok<*NASGU>
@@ -76,7 +77,7 @@ function [sTrialData,sStimParams]= FO_runAsyncStim()
 		%% add parameters to stim struct
 		sStims = sStimParams.sStims; %lazy
 		for indTrial = 1:length(sStims)
-			sStims(indTrial).dblStimX_pix = sStimParams.intScreenWidth_pix/2+sStims(indTrial).dblStimX_deg*sStimParams.dblPixelsPerDeg;
+			sStims(indTrial).dblStimX_pix = sStimParams.intScreenWidth_pix/2+(sStims(indTrial).dblStimX_deg*sStimParams.dblPixelsPerDeg)+(sStimParamsSettings.dblSubjectPosX_cm*sStimParams.dblPixelsPerCm); %correct for position of the mouse
 			sStims(indTrial).vecStimSize_pix = sStims(indTrial).vecStimSize_deg*sStimParams.dblPixelsPerDeg;
 			dblPixelsPerSec = sStims(indTrial).dblVelocity_deg*sStimParams.dblPixelsPerDeg;
 			sStims(indTrial).dblPixelsPerFrame = dblPixelsPerSec/sStimParams.dblStimFrameRate;

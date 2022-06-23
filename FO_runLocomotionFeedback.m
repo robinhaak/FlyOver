@@ -59,7 +59,7 @@ if ~exist('sStimParamsSettings','var') || isempty(sStimParamsSettings) || ~(strc
 	sStimParamsSettings.strTempObjectPath = 'D:\_TempData';%'X:\JorritMontijn\';%X:\JorritMontijn\ or F:\Data\Temp\
 	
 	%visual space parameters
-	sStimParamsSettings.dblSubjectPosX_cm = 0; % cm; relative to center of screen
+	sStimParamsSettings.dblSubjectPosX_cm = 0; % cm; relative to center of screen (+ = right, - = left)
 	sStimParamsSettings.dblSubjectPosY_cm = 0; % cm; relative to center of screen, not important for FlyOver stim
 	sStimParamsSettings.dblScreenDistance_cm = 45; % cm; measured, 14
 	sStimParamsSettings.vecUseMask = 0; %[1] if mask to emulate retinal-space, [0] use screen-space

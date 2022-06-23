@@ -11,12 +11,12 @@ function sStims = FO_loadStimSet(sStimParams)
 	%% create stimulus set based on UI
 	if strSelected == '20D_20B' %#ok<*BDSCA>
 		
-		%20 x black disc (4 deg) @20 deg/s, middle of the screen, & 20 'blank'trials
+		%20 x black disc (4 deg) @20 deg/s, middle, & 20 'blank'trials
 		intTotalStims = 2; %excluding 'blanks'
 		intTotalBlanks = 0;
 		vecStimSize_deg = [4 4]; %deg
 		dblVelocity_deg = 20; %deg/s
-		dblStimX_deg = 0; %relative to middle of the screen
+		dblStimX_deg = 0; %relative to hthe mouse's nose
 		dblStimulus = 0;
 		
 		%get random indices for blanks
